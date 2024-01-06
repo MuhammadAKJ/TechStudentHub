@@ -6,6 +6,27 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 
+def update_profile(request):
+    if request.method == 'POST':
+        profile_picture = request.POST['profile_picture']
+        bio = request.POST['bio']
+        skills = request.POST['skills']
+        interests = request.POST['interests']
+        portfolio_url = request.POST['portfolio_url']
+        twitter_url = request.POST['twitter']
+        linkedin_url = request.POST['linkedin']
+        user = User.objects.update(profile_picture=profile_picture,
+                                   bio=bio,
+                                   skills=skills,
+                                   interests=interests,
+                                   portfolio_url=portfolio_url,
+                                   twitter_url=twitter_url,
+                                   linkedin_url=linkedin_url)
+        user.save()
+        return redirect('index')
+
+
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
