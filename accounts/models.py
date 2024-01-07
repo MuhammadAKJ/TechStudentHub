@@ -10,7 +10,7 @@ class UserProfile(models.Model):
     interests = models.CharField(max_length=255, blank=True)
     portfolio_url = models.URLField(blank=True)
     contact_email = models.EmailField(blank=True)
-    phone_number = models.PhoneNumberField(blank=True)
+    phone_number = models.CharField(max_length=15, blank=True)
     public_profile = models.BooleanField(default=True)
     # social media links
     twitter_url = models.CharField(max_length=255, blank=True)

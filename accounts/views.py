@@ -5,8 +5,13 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
+def index(request):
+    return render(request, 'index.html')
 
 def update_profile(request):
+    return render(request,  'profile_update.html')
+
+def update(request):
     if request.method == 'POST':
         profile_picture = request.POST['profile_picture']
         bio = request.POST['bio']
